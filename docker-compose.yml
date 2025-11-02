@@ -4,11 +4,11 @@ secrets:
 
 services:
   Lightbulb-Automation:
-    image: ghcr.io/project-chip/chip-build:174
-    #stdin_open: true
-    #tty: true
-    #command: /bin/bash
-    #command: /bin/sh -c 'echo "hello $$HOSTNAME"'
+    image: chip-local-dev:174
+    pull_policy: never
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
      - type: bind
        source: ../connectedhomeip
