@@ -1,3 +1,7 @@
+secrets:
+  ssh-private-key:
+    file: secrets/id_ed25519_sym
+
 services:
   Lightbulb-Automation:
     image: ghcr.io/project-chip/chip-build:174
@@ -5,3 +9,10 @@ services:
     #tty: true
     #command: /bin/bash
     #command: /bin/sh -c 'echo "hello $$HOSTNAME"'
+    volumes:
+     - type: bind
+       source: ../connectedhomeip
+       target: /connectedhomeip
+    secrets:
+      - source: ssh-private-key
+        target: /root/.ssh/id_ed25519
