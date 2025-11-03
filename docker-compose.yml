@@ -1,6 +1,6 @@
-secrets:
-  ssh-private-key:
-    file: secrets/id_ed25519_sym
+# secrets:
+#   ssh-private-key:
+#     file: secrets/id_ed25519_sym
 
 services:
   Lightbulb-Automation:
@@ -9,10 +9,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-     - type: bind
-       source: ../connectedhomeip
-       target: /connectedhomeip
-    secrets:
-      - source: ssh-private-key
-        target: /root/.ssh/id_ed25519
+      ssh:
+        - default
+        # - private-key=./secrets/id_ed25519_sym
+    # volumes:
+    #   - type: bind
+    #     source: ../connectedhomeip
+    #     target: /connectedhomeip
+    # secrets:
+    #   - source: ssh-private-key
+    #     target: /root/.ssh/id_ed25519
