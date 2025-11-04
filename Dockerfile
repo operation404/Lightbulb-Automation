@@ -10,4 +10,5 @@ RUN  ./connectedhomeip/scripts/checkout_submodules.py --shallow --platform  linu
 WORKDIR /root/connectedhomeip/
 SHELL ["/bin/bash", "-exo", "pipefail", "-c"]
 RUN source scripts/bootstrap.sh 
-
+RUN scripts/build_python.sh -m platform -i out/python_env
+RUN apt install sudo

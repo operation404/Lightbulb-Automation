@@ -19,3 +19,4 @@ services:
     # secrets:
     #   - source: ssh-private-key
     #     target: /root/.ssh/id_ed25519
+    # network_mode: "host"
